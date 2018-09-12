@@ -4,4 +4,6 @@ Music Visualizer of the cover of the Joy Division album Unknown Pleasures.
 
 At some point I will explain how I did this. In the mean time here is a screen cap.
 
-![image] (https://raw.github.com/elabraha/JoyDivisionVisualizer/master/assets/screenshot.jpg)
+<div align="center">
+    <img src="https://raw.github.com/elabraha/JoyDivisionVisualizer/master/assets/screenshot.jpg" width="400px"</img> 
+</div>

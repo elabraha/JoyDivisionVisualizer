@@ -1,6 +1,6 @@
 var  JOY_DIVISON_FILE = 'assets/Joy_Division-Disorder.mp3';
-var start = 100;
-var end = 135;
+var start = 110;
+var end = 140;
 var NUMLINES = 32;
 var p = 0;
 var CUT_SPEC = NUMLINES*10;
@@ -20,7 +20,7 @@ function setup() {
 	joydivtrack.setVolume(0.5);
 	joydivtrack.play();
 	fft = new p5.FFT(0.9, 1024);
-	noiseDetail(8, 0.8);
+	noiseDetail(12, 0.8);
 	for (var i = 0; i < 1024/NUMLINES - 10; i++)
 		randoms[i] = random();
 }
@@ -58,9 +58,9 @@ function draw() {
 				if (beforeY <= 0.0)
 					beforeY = 0.0;
 			}
-			var addNoise = map(noise(xoff), 0, 1, -10, 5);
+			var addNoise = map(noise(xoff), 0, 1, -5, 2);
 			xoff += 0.08;
-			var x = map(p, 0, NUMLINES, width/5, 4*width/5);
+			var x = map(p, 0, NUMLINES, 3*width/10, 7*width/10);
 			var y = 0;
 			if (joydivtrack.isPlaying()) {
 				if (beforeY*spectrum[i] == 0) {

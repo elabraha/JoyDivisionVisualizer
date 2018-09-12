@@ -11,6 +11,7 @@ var randoms = new Array(LEN).fill(0);
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
+	myFont = loadFont('assets/Helmet-Regular.ttf');
 }
 
 function setup() {
@@ -28,9 +29,10 @@ function setup() {
 function draw() {
 	background(0);
 	textAlign(CENTER);
+	textFont(myFont);
 	fill(255);
 	textSize(36);
-	text("Joy Division", width/2, 40);
+	text("Joy Divisualizer", width/2, 40);
 	textSize(24);
 	text("Unknown Pleasures", width/2, 80);
 	fill(0);
@@ -93,4 +95,4 @@ function togglePlay() {
 	} else {
 	  joydivtrack.loop();
 	}
-  }
+}

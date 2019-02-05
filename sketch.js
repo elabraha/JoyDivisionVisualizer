@@ -11,7 +11,7 @@ var randoms = new Array(LEN).fill(0);
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
-	joydivtrack.pause();
+	//joydivtrack.pause();
 	myFont = loadFont('assets/Helmet-Regular.ttf');
 }
 
@@ -19,6 +19,7 @@ function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 	joydivtrack.setVolume(0.5);
 	joydivtrack.setLoop(true);
+	joydivtrack.pause();
 	cnv.mouseClicked(togglePlay);
 	stroke(255);
 	fft = new p5.FFT(0.9, 1024);

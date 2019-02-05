@@ -1,4 +1,4 @@
-var  JOY_DIVISON_FILE = '/../assets/Joy_Division-Disorder.mp3';
+var  JOY_DIVISON_FILE = '/assets/Joy_Division-Disorder.mp3';
 var start = 110;
 var end = 140;
 var NUMLINES = 32;

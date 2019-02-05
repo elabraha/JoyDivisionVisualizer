@@ -7,6 +7,4 @@ At some point I will explain how I did this. In the mean time here is a screen c
 
 My sketch is also hosted [here](https://www.openprocessing.org/sketch/588617)
 
-## ...and here it is in an iframe:
-
-<iframe src="https://www.openprocessing.org/sketch/588617/embed/" width="1600" height="709"></iframe>
+## ...and here it is as a gif:

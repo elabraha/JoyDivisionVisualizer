@@ -12,16 +12,16 @@ var joydivtrack;
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
-	joydivtrack.pause();
 }
 
 function setup() {
 	background(0);
 	var cnv = createCanvas(windowWidth, windowHeight);
+	joydivtrack.setVolume(0.5);
+	joydivtrack.setLoop(true);
+	joydivtrack.pause();
 	mouseClicked();
 	stroke(255);
-	joydivtrack.setVolume(0.5);
-	// joydivtrack.play();
 	fft = new p5.FFT(0.9, 1024);
 	noiseDetail(12, 0.8);
 	for (var i = 0; i < 1024/NUMLINES - 10; i++)
@@ -92,7 +92,7 @@ function draw() {
 }
 
 function mouseClicked() {
-	if (joydivtrack.isPlaying()) {
+	if (joydivtrack.isPlaying() || joydivtrack.isLooping()) {
 	  joydivtrack.pause();
 	} else {
 	  joydivtrack.loop();

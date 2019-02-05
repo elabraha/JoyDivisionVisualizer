@@ -12,6 +12,7 @@ var joydivtrack;
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
+	joydivtrack.pause();
 }
 
 function setup() {
@@ -20,8 +21,6 @@ function setup() {
 	mouseClicked();
 	joydivtrack.setVolume(0.5);
 	joydivtrack.setLoop(true);
-	joydivtrack.play();
-	joydivtrack.pause();
 	stroke(255);
 	fft = new p5.FFT(0.9, 1024);
 	noiseDetail(12, 0.8);

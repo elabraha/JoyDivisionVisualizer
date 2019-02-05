@@ -17,11 +17,11 @@ function preload() {
 function setup() {
 	background(0);
 	var cnv = createCanvas(windowWidth, windowHeight);
+	mouseClicked();
 	joydivtrack.setVolume(0.5);
 	joydivtrack.setLoop(true);
 	joydivtrack.play();
 	joydivtrack.pause();
-	mouseClicked();
 	stroke(255);
 	fft = new p5.FFT(0.9, 1024);
 	noiseDetail(12, 0.8);

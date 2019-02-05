@@ -1,4 +1,4 @@
-var  JOY_DIVISON_FILE = '/assets/Joy_Division-Disorder.mp3';
+var  JOY_DIVISON_FILE = 'assets/Joy_Division-Disorder.mp3';
 var start = 110;
 var end = 140;
 var NUMLINES = 32;
@@ -8,20 +8,19 @@ var inc = 0.001;
 var starting = 0.0;
 var LEN = 1024/NUMLINES - 10;
 var randoms = new Array(LEN).fill(0);
-var joydivtrack;
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
+	myFont = loadFont('assets/Helmet-Regular.ttf');
 	joydivtrack.pause();
 }
 
 function setup() {
-	background(0);
 	var cnv = createCanvas(windowWidth, windowHeight);
-	mouseClicked();
+	cnv.mouseClicked(togglePlay);
+	stroke(255);
 	joydivtrack.setVolume(0.5);
 	joydivtrack.setLoop(true);
-	stroke(255);
 	fft = new p5.FFT(0.9, 1024);
 	noiseDetail(12, 0.8);
 	for (var i = 0; i < 1024/NUMLINES - 10; i++)
@@ -31,7 +30,7 @@ function setup() {
 function draw() {
 	background(0);
 	textAlign(CENTER);
-	textFont('Helvetica');
+	textFont(myFont);
 	fill(255);
 	textSize(36);
 	text("Joy Divisualizer", width/2, 40);
@@ -91,10 +90,9 @@ function draw() {
 	starting += inc;
 }
 
-function mouseClicked() {
-	if (joydivtrack.isPlaying() || joydivtrack.isLooping()) {
+function togglePlay() {
+	if (joydivtrack.isPlaying()) {
 	  joydivtrack.pause();
 	} else {
 	  joydivtrack.loop();
 	}
-}

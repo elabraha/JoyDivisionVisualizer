@@ -1,4 +1,4 @@
-var  JOY_DIVISON_FILE = 'assets/Joy_Division-Disorder.mp3';
+var  JOY_DIVISON_FILE = 'Joy_Division-Disorder.mp3';
 var start = 110;
 var end = 140;
 var NUMLINES = 32;
@@ -8,19 +8,20 @@ var inc = 0.001;
 var starting = 0.0;
 var LEN = 1024/NUMLINES - 10;
 var randoms = new Array(LEN).fill(0);
+var joydivtrack;
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
 	joydivtrack.pause();
-	myFont = loadFont('assets/Helmet-Regular.ttf');
 }
 
 function setup() {
+	background(0);
 	var cnv = createCanvas(windowWidth, windowHeight);
-	cnv.mouseClicked(togglePlay);
+	mouseClicked();
 	stroke(255);
 	joydivtrack.setVolume(0.5);
-	joydivtrack.play();
+	// joydivtrack.play();
 	fft = new p5.FFT(0.9, 1024);
 	noiseDetail(12, 0.8);
 	for (var i = 0; i < 1024/NUMLINES - 10; i++)
@@ -30,7 +31,7 @@ function setup() {
 function draw() {
 	background(0);
 	textAlign(CENTER);
-	textFont(myFont);
+	textFont('Helvetica');
 	fill(255);
 	textSize(36);
 	text("Joy Divisualizer", width/2, 40);
@@ -78,7 +79,7 @@ function draw() {
 					y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep) - addNoise;
 				}
 			} else {
-				y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep)
+				y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep);
 			}
 			// console.log(start + sep, end + sep, y);
 			curveVertex(x, y);
@@ -90,7 +91,7 @@ function draw() {
 	starting += inc;
 }
 
-function togglePlay() {
+function mouseClicked() {
 	if (joydivtrack.isPlaying()) {
 	  joydivtrack.pause();
 	} else {

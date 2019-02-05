@@ -77,7 +77,7 @@ function draw() {
 					y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep) - addNoise;
 				}
 			} else {
-				y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep);
+				// y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep);
 			}
 			// console.log(start + sep, end + sep, y);
 			curveVertex(x, y);

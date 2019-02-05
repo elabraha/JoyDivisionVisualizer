@@ -11,6 +11,7 @@ var randoms = new Array(LEN).fill(0);
 
 function preload() {
 	joydivtrack = loadSound(JOY_DIVISON_FILE);
+	joydivtrack.pause();
 	myFont = loadFont('assets/Helmet-Regular.ttf');
 }
 
@@ -50,22 +51,21 @@ function draw() {
 		// mult *= 1.15;
 		mult *= 1.1;
 		for (var i = j; i < (j + NUMLINES + 1); i++) {
+			var beforeY = 0.0;
+			if (p <= NUMLINES/2) {
+				beforeY = mult*cos(map(p, 0, NUMLINES/2, radians(-180), radians(0)));
+				if (beforeY <= 0.0)
+					beforeY = 0.0;
+			} else {
+				beforeY = mult*cos(map(p, NUMLINES/2 + 1, NUMLINES, radians(0), radians(180)));
+				if (beforeY <= 0.0)
+					beforeY = 0.0;
+			}
+			var addNoise = map(noise(xoff), 0, 1, -5, 2);
+			xoff += 0.08;
 			var x = map(p, 0, NUMLINES, 3*width/10, 7*width/10);
 			var y = 0;
 			if (joydivtrack.isPlaying()) {
-				var beforeY = 0.0;
-				if (p <= NUMLINES/2) {
-					beforeY = mult*cos(map(p, 0, NUMLINES/2, radians(-180), radians(0)));
-					if (beforeY <= 0.0)
-						beforeY = 0.0;
-				} else {
-					beforeY = mult*cos(map(p, NUMLINES/2 + 1, NUMLINES, radians(0), radians(180)));
-					if (beforeY <= 0.0)
-						beforeY = 0.0;
-				}
-				var addNoise = map(noise(xoff), 0, 1, -5, 2);
-				xoff += 0.08;
-
 				if (beforeY*spectrum[i] == 0) {
 					y = end + sep - addNoise;
 					if (addNoise < 0) {
@@ -77,6 +77,8 @@ function draw() {
 					}
 					y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep) - addNoise;
 				}
+			} else {
+				y = map(beforeY*spectrum[i], 0, 255, end + sep, start + sep)
 			}
 			// console.log(start + sep, end + sep, y);
 			curveVertex(x, y);

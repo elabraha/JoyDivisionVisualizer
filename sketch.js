@@ -19,6 +19,7 @@ function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 	joydivtrack.setVolume(0.5);
 	joydivtrack.setLoop(true);
+	joydivtrack.play();
 	joydivtrack.pause();
 	mouseClicked();
 	stroke(255);

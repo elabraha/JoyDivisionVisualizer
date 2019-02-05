@@ -8,4 +8,4 @@ At some point I will explain how I did this. In the mean time here is a screen c
 My sketch is also hosted [here](https://www.openprocessing.org/sketch/588617)
 
 ## ...and here it is as a gif:
-![gif hosted on giphy](https://gph.is/2S7qzax)
+![gif hosted on giphy](https://media.giphy.com/media/1svxgnAFEPcoA6zH5X/giphy.gif)
